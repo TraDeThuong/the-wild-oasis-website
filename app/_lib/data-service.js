@@ -2,6 +2,7 @@ import { supabase } from "./supabase";
 import { notFound } from "next/navigation";
 import { eachDayOfInterval } from "date-fns";
 
+
 /////////////
 // GET
 
@@ -66,21 +67,21 @@ export async function getGuest(email) {
   return data;
 }
 
-// export async function getBooking(id) {
-//   const { data, error, count } = await supabase
-//     .from("Bookings")
-//     .select("*")
-//     .eq("id", id)
-//     .single();
+export async function getBooking(id) {
+  const { data, error, count } = await supabase
+    .from("Bookings")
+    .select("*")
+    .eq("id", id)
+    .single();
 
-//   if (error) {
-//     console.error(error);
-//     // throw new Error("Booking could not get loaded");
-//     throw error
-//   }
+  if (error) {
+    console.error(error);
+    // throw new Error("Booking could not get loaded");
+    throw error
+  }
 
-//   return data;
-// }
+  return data;
+}
 
 export async function getBookings(guestId) {
   const { data, error, count } = await supabase

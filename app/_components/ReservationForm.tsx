@@ -17,7 +17,8 @@ type Props = {
 
 function ReservationForm({cabin, user} : Props) {
   const {range, resetRange} = useReservation ()
-  const {maxCapacity, regularPrice, discount, id} = cabin;
+  const {maxCapacity , regularPrice, discount, id} = cabin;
+
 
   const startDate = range?.from
   const endDate = range?.to
@@ -75,7 +76,7 @@ function ReservationForm({cabin, user} : Props) {
             <option value='' key=''>
               Select number of guests...
             </option>
-            {Array.from({ length: maxCapacity }, (_, i) => i + 1).map((x) => (
+            {Array.from({ length: (maxCapacity ?? 0) }, (_, i) => i + 1).map((x) => (
               <option value={x} key={x}>
                 {x} {x === 1 ? 'guest' : 'guests'}
               </option>

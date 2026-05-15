@@ -18,6 +18,13 @@ export default async function Reservation({cabin} : ReservationProps) {
 
     const session = await auth()
 
+    const safeUser = session?.user
+      ? {
+        name: session.user.name ?? "Guest",
+        image: session.user.image ?? "/default-user.jpg",
+      }
+    : null;
+
 
     const bookedDatesISO = bookedDates.map((d) => d.toISOString());
 
@@ -27,7 +34,7 @@ export default async function Reservation({cabin} : ReservationProps) {
             settings = {settings}
             bookedDates = {bookedDatesISO}
             cabin = {cabin}/>
-          {session?.user ? <ReservationForm cabin = {cabin} user = {session.user}/> : <LoginMessage/>}
+          {safeUser ? <ReservationForm cabin = {cabin} user = {safeUser}/> : <LoginMessage/>}
     </div>
   )
 }

@@ -7,13 +7,14 @@ import EditReservation from './EditReservation';
 
 
 
+
 export type BookingWithCabin = Booking & {
   cabins: Pick<Cabin, "name" | "image">;
 };
 
 type ReservationCardProps = {
   booking: BookingWithCabin;
-  onDelete: () => void
+  onDelete: (id: Booking["id"]) => void;
 };
 
 
