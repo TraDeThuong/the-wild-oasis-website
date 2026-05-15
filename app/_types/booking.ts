@@ -23,18 +23,3 @@ export type Booking = {
   guestID: number | null; // foreign key
 };
 
-export type BookingWithCabin = {
-  id: number;
-  created_at: string;
-  startDate: string;
-  endDate: string;
-  numNights: number;
-  numGuests: number;
-  totalPrice: number;
-  guestID: number;
-  cabinID: number;
-  cabins: {
-    name: string;
-    image: string;
-  };
-};

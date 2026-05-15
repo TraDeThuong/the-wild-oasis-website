@@ -1,16 +1,14 @@
 import { format, formatDistance, isPast, isToday, parseISO } from 'date-fns';
 import DeleteReservation from './DeleteReservation';
 import type { Booking } from '../_types/booking';
-import type { Cabin } from '../_types/cabin'; 
 import Image from "next/image";
 import EditReservation from './EditReservation';
+import type { BookingSummary } from '../_lib/getBookings';
 
 
 
 
-export type BookingWithCabin = Booking & {
-  cabins: Pick<Cabin, "name" | "image">;
-};
+export type BookingWithCabin = BookingSummary;
 
 type ReservationCardProps = {
   booking: BookingWithCabin;
@@ -34,7 +32,6 @@ function ReservationCard({ booking, onDelete } : ReservationCardProps) {
     numNights,
     totalPrice,
     numGuests,
-    status,
     created_at,
     cabins,
   } = booking;
