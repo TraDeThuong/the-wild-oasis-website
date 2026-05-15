@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Wild Oasis Website
+
+A modern, guest-facing luxury cabin rental website built with Next.js. This application allows guests to explore cabins, manage their profiles, and view their reservations in a seamless and responsive environment.
+
+## Features
+
+- **Guest Authentication**: Secure login using Supabase and NextAuth.js.
+- **Dynamic Cabin Display**: (In progress) Browsing and filtering luxury cabins.
+- **Guest Dashboard**: A dedicated `/account` area for guests to:
+  - View a personalized welcome message.
+  - Manage reservations.
+  - Update user profile details.
+- **Responsive Design**: Built with Tailwind CSS for a perfect experience on mobile, tablet, and desktop.
+- **Optimized Performance**: Leverages Next.js Server Components, Streaming, and dedicated loading states (`loading.tsx`).
+
+## Tech Stack
+
+- **Framework**: Next.js 14+ (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Backend/Auth**: Supabase
+- **Icons/Images**: Lucide React & Optimized Next/Image
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Node.js (Latest LTS version)
+- npm or yarn
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   ```bash
+   git clone <your-repository-url>
+   cd The-Wild-Oasis-Website
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Set up Environment Variables:**
+   Create a `.env.local` file in the root directory and add your Supabase and Auth credentials:
 
-## Learn More
+   ```env
+   SUPABASE_URL=your_supabase_url
+   SUPABASE_KEY=your_supabase_anon_key
+   NEXTAUTH_URL=http://localhost:3000
+   NEXTAUTH_SECRET=your_nextauth_secret
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   Open http://localhost:3000 with your browser to see the result.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/`: Next.js App Router files (Routes, Layouts, Loading states).
+  - `account/`: Guest dashboard and profile management.
+  - `_components/`: Reusable UI components (SideNavigation, Spinner, etc.).
+  - `_lib/`: Shared logic, authentication, and database utilities.
+- `public/`: Static assets like images and logos.
 
-## Deploy on Vercel
+## Key Components
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **SideNavigation**: Handles navigation within the account area.
+- **Layouts**: Nested layouts for persistent UI elements (e.g., sidebars in the account section).
+- **Auth**: Integration with Supabase for secure guest sessions.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License.
